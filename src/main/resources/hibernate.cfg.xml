@@ -1,0 +1,55 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+    <session-factory>
+
+        <!-- Настройки подключения к БД -->
+        <property name="connection.driver_class">
+            com.mysql.jdbc.Driver
+        </property>
+
+        <property name="connection.url">
+            jdbc:mysql://localhost:3306/test?useSSL=false
+        </property>
+
+        <property name="connection.username">root</property>
+        <property name="connection.password">root</property>
+
+        <property name="connection.pool_size">1</property>
+
+        <!-- SQL диалект -->
+        <property name="dialect">
+            org.hibernate.dialect.MySQL57InnoDBDialect
+        </property>
+
+        <!-- Включить автоматическое управление контекстом сессии -->
+        <property name="current_session_context_class">thread</property>
+
+        <!-- Отключение кеша второго уровня  -->
+        <property name="cache.provider_class">
+            org.hibernate.cache.internal.StandardQueryCache
+        </property>
+
+        <!-- Вывод в консоль SQL-запросов -->
+        <property name="show_sql">false</property>
+
+        <property name="hibernate.connection.CharSet">utf8</property>
+        <property name="hibernate.connection.characterEncoding">utf8</property>
+        <property name="hibernate.connection.useUnicode">true</property>
+
+        <property name="hbm2ddl.auto">update</property>
+
+        <property name="hibernate.connection.autocommit">false</property>
+
+        <!-- Подключение объектов сущностей -->
+        <mapping package="entity"/>
+        <mapping class="entity.User"/>
+
+
+    </session-factory>
+
+</hibernate-configuration>
